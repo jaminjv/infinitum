@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Jamin — Tu página web en 1 día por $399</title>
+<meta name="description" content="Diseño y publico tu página web profesional en 1 día por solo $399, con hosting y dominio incluidos. Y pagas cuando la recibes." />
+<meta name="theme-color" content="#03081a" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Tu página web en 1 día por solo $399" />
+<meta property="og:description" content="Hosting y dominio incluidos. Y pagas cuando la recibes." />
+<meta property="og:image" content="assets/img/og-cover.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="assets/fonts/outfit-900.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/css/fonts.css" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- ===== Fondo global: rayos de luz + halos ===== -->
+<div class="bg-stage" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="rays">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="orb orb-1" data-parallax="0.18"></div>
+  <div class="orb orb-2" data-parallax="-0.12"></div>
+  <div class="orb orb-3" data-parallax="0.08"></div>
+  <div class="bg-noise"></div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="top">
+  <div class="shell header-inner glass">
+    <a class="brand" href="#top" aria-label="Jamin, inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 24" fill="none"><path d="M11 4c-3.9 0-7 3.6-7 8s3.1 8 7 8c3 0 5.2-2.1 7-4.6l3.4-4.8C23.1 8.1 25 6 27.6 6 30.4 6 33 8.6 33 12s-2.6 6-5.4 6c-2.6 0-4.5-2.1-6.2-4.4" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="g1" x1="4" y1="12" x2="36" y2="12"><stop stop-color="#2CA6FF"/><stop offset="1" stop-color="#6FD6FF"/></linearGradient></defs></svg>
+      </span>
+      <span class="brand-text">Jamin<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#servicio">El servicio</a>
+      <a href="#incluye">Qué incluye</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#extras">Más servicios</a>
+      <a href="#sobre-mi">Sobre mí</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm header-cta" href="#contacto">
+      <span>Cotizar ahora</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav glass" id="mobileNav" hidden>
+    <a href="#servicio">El servicio</a>
+    <a href="#incluye">Qué incluye</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#extras">Más servicios</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#contacto" class="mobile-cta">Cotizar ahora</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="servicio">
+  <div class="shell hero-inner">
+
+    <div class="hero-copy">
+      <span class="pill reveal" data-reveal>
+        <i class="pulse" aria-hidden="true"></i> Disponible esta semana · Entrega en 24 h
+      </span>
+
+      <h1 class="hero-title">
+        <span class="line reveal" data-reveal data-delay="60">Tu página web</span>
+        <span class="line reveal" data-reveal data-delay="120">en <em>1 día</em></span>
+        <span class="line price reveal" data-reveal data-delay="180">Por solo <em>$399</em></span>
+      </h1>
+
+      <p class="hero-sub reveal" data-reveal data-delay="240">
+        <strong>+ Hosting + Dominio</strong> incluidos
+      </p>
+
+      <p class="hero-kicker reveal" data-reveal data-delay="300">Y pagas cuando la recibes</p>
+
+      <p class="hero-lead reveal" data-reveal data-delay="360">
+        Diseño, desarrollo y publico tu sitio profesional en un solo día. Sin anticipos, sin
+        mensualidades sorpresa y sin plantillas genéricas: revisas tu web terminada y, si te
+        encanta, entonces pagas.
+      </p>
+
+      <div class="hero-actions reveal" data-reveal data-delay="420">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/18159084163?text=Hola%20Jamin%2C%20quiero%20mi%20p%C3%A1gina%20web%20en%201%20d%C3%ADa%20por%20%24399." target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          <span>Escríbeme por WhatsApp</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#contacto">
+          <span>Solicitar mi web</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <ul class="hero-trust reveal" data-reveal data-delay="480">
+        <li><b>0</b> de anticipo</li>
+        <li><b>24 h</b> de entrega</li>
+        <li><b>1 año</b> de hosting</li>
+      </ul>
+    </div>
+
+    <!-- Laptop mockup en CSS puro -->
+    <div class="hero-visual reveal" data-reveal data-delay="220">
+      <div class="laptop" data-tilt>
+        <div class="laptop-screen glass">
+          <div class="screen-bar">
+            <span class="screen-brand">Mi Sitio Web</span>
+            <span class="screen-links"><i>Inicio</i><i>Servicios</i><i>Nosotros</i><i>Contacto</i></span>
+          </div>
+          <div class="screen-body">
+            <svg class="screen-icon" viewBox="0 0 120 100" aria-hidden="true">
+              <g fill="none" stroke="#6FD6FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <!-- grúa -->
+                <path d="M24 86V18M14 90h20M12 18h44"/>
+                <path d="M24 6 12 18M24 6l26 12"/>
+                <path d="M46 18v16"/>
+                <path d="M41 34h10v7H41z"/>
+                <!-- ventana de navegador -->
+                <rect x="64" y="34" width="46" height="38" rx="5"/>
+                <path d="M64 45h46"/>
+                <path d="M71 40h.01M77 40h.01M83 40h.01" stroke-width="3.4"/>
+                <path d="M72 55h14M72 63h22M94 55h8"/>
+              </g>
+            </svg>
+            <p class="screen-title">Sitio web<br /><em>en construcción</em></p>
+            <p class="screen-text">Estamos trabajando para ofrecerte<br />la mejor experiencia.</p>
+            <span class="screen-btn">Muy pronto</span>
+          </div>
+        </div>
+        <div class="laptop-base"><i></i></div>
+        <div class="laptop-glow" aria-hidden="true"></div>
+      </div>
+
+      <div class="float-card glass float-a" data-parallax="0.06">
+        <b>$399</b><span>pago único</span>
+      </div>
+      <div class="float-card glass float-b" data-parallax="-0.05">
+        <b>24 h</b><span>entrega</span>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="scroll-hint" href="#incluye" aria-label="Ver más">
+    <span></span>
+  </a>
+</section>
+
+<!-- ===== QUÉ INCLUYE ===== -->
+<section class="section" id="incluye">
+  <div class="shell">
+    <header class="section-head">
+      <span class="eyebrow reveal" data-reveal>Todo incluido</span>
+      <h2 class="reveal" data-reveal data-delay="80">Un precio. Cero letras chiquitas.</h2>
+      <p class="section-lead reveal" data-reveal data-delay="140">
+        Los $399 cubren el paquete completo para que tu negocio esté en línea hoy mismo.
+      </p>
+    </header>
+
+    <div class="cards">
+      <article class="card glass reveal" data-reveal data-delay="0">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg></span>
+        <h3>Diseño a la medida</h3>
+        <p>Nada de plantillas recicladas. Tu web se diseña con tu marca, tus colores y tu forma de vender.</p>
+      </article>
+
+      <article class="card glass reveal" data-reveal data-delay="60">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2ZM11 18h2"/></svg></span>
+        <h3>100% responsiva</h3>
+        <p>Se ve impecable en celular, tablet y escritorio. La mayoría de tus clientes te verán desde el teléfono.</p>
+      </article>
+
+      <article class="card glass reveal" data-reveal data-delay="120">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4zM8 11h.01M12 11h.01M8 15h8"/></svg></span>
+        <h3>Hosting incluido</h3>
+        <p>Un año de alojamiento rápido y seguro, con certificado SSL para que tu sitio cargue con candado.</p>
+      </article>
+
+      <article class="card glass reveal" data-reveal data-delay="180">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></span>
+        <h3>Dominio propio</h3>
+        <p>Registro y configuro tu <b>tunegocio.com</b>. Se ve profesional y es tuyo, a tu nombre.</p>
+      </article>
+
+      <article class="card glass reveal" data-reveal data-delay="240">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span>
+        <h3>WhatsApp integrado</h3>
+        <p>Botón directo a tu chat y formulario que te llega al correo. Los clientes te escriben en un toque.</p>
+      </article>
+
+      <article class="card glass reveal" data-reveal data-delay="300">
+        <span class="card-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m11 3-8 9h7l-1 9 8-9h-7Z"/></svg></span>
+        <h3>Rápida y optimizada</h3>
+        <p>SEO base, metadatos y carga veloz para que Google te encuentre y nadie se vaya esperando.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESO ===== -->
+<section class="section section-tight" id="proceso">
+  <div class="shell">
+    <header class="section-head">
+      <span class="eyebrow reveal" data-reveal>Cómo funciona</span>
+      <h2 class="reveal" data-reveal data-delay="80">De la idea a tu web, en un día</h2>
+    </header>
+
+    <ol class="steps">
+      <li class="step glass reveal" data-reveal>
+        <span class="step-num">01</span>
+        <h3>Me cuentas</h3>
+        <p>Por WhatsApp o el formulario me dices a qué te dedicas y qué quieres lograr. 10 minutos bastan.</p>
+      </li>
+      <li class="step glass reveal" data-reveal data-delay="90">
+        <span class="step-num">02</span>
+        <h3>Yo construyo</h3>
+        <p>Diseño, escribo, monto el hosting y conecto tu dominio. Tú sigues con lo tuyo.</p>
+      </li>
+      <li class="step glass reveal" data-reveal data-delay="180">
+        <span class="step-num">03</span>
+        <h3>Revisas y pagas</h3>
+        <p>Te entrego el sitio en vivo. Si te gusta, pagas los $399. Así de simple.</p>
+      </li>
+    </ol>
+
+    <div class="promise glass reveal" data-reveal data-delay="120">
+      <div class="promise-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6l-8-3Z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <p><b>Cero riesgo para ti.</b> No pido anticipo. Si el resultado no te convence, no pagas nada y no hay compromiso.</p>
+      <a class="btn btn-primary" href="#contacto"><span>Quiero la mía</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÁS SERVICIOS (sección pequeña) ===== -->
+<section class="section section-extras" id="extras">
+  <div class="shell">
+    <header class="section-head compact">
+      <span class="eyebrow reveal" data-reveal>También te puedo ayudar con</span>
+      <h2 class="h3 reveal" data-reveal data-delay="80">Otros servicios</h2>
+    </header>
+
+    <div class="extras">
+      <article class="extra glass reveal" data-reveal>
+        <span class="extra-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 0 0 0 18c1.1 0 2-.9 2-2 0-.5-.2-1-.6-1.4-.3-.4-.4-.8-.4-1.1 0-.8.7-1.5 1.5-1.5H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8Z"/><circle cx="7.5" cy="11.5" r="1.1" fill="currentColor"/><circle cx="11" cy="7.5" r="1.1" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.1" fill="currentColor"/></svg></span>
+        <h3>Diseño Gráfico</h3>
+        <p>Logos, flyers e identidad visual con una estética consistente.</p>
+      </article>
+
+      <article class="extra glass reveal" data-reveal data-delay="70">
+        <span class="extra-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M3 7h18v11H3zM7 12h5M7 15h3"/><circle cx="16.5" cy="12.5" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>Business Cards</h3>
+        <p>Tarjetas de presentación impresas o digitales, listas para entregar.</p>
+      </article>
+
+      <article class="extra glass reveal" data-reveal data-delay="140">
+        <span class="extra-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4 8h9a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Zm11 4 5-3v8l-5-3M6 8V6"/></svg></span>
+        <h3>Fotografía y Video Profesional</h3>
+        <p>Producto, retrato corporativo y clips listos para publicar.</p>
+      </article>
+
+      <article class="extra glass reveal" data-reveal data-delay="210">
+        <span class="extra-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v14H4zM4 9h16"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="m10 12 5 3-5 3v-6Z"/></svg></span>
+        <h3>Contenido para Redes Sociales</h3>
+        <p>Piezas y calendarios pensados para que tu marca no se detenga.</p>
+      </article>
+    </div>
+
+    <p class="extras-foot reveal" data-reveal data-delay="140">
+      ¿Necesitas varios? <a href="#contacto">Cuéntame</a> y armamos un paquete.
+    </p>
+  </div>
+</section>
+
+<!-- ===== SOBRE MÍ ===== -->
+<section class="section" id="sobre-mi">
+  <div class="shell about">
+    <div class="about-photo reveal" data-reveal>
+      <div class="photo-frame">
+        <img src="assets/img/jamin.png" alt="Jamin, diseñador y desarrollador web, trabajando en su laptop"
+             width="1086" height="1448" loading="lazy" decoding="async"
+             onerror="this.onerror=null;this.src='assets/img/jamin-placeholder.svg';" />
+        <div class="photo-glow" aria-hidden="true"></div>
+      </div>
+      <div class="badge glass" data-parallax="0.05">
+        <b>Trato directo</b><span>Hablas conmigo, no con un call center</span>
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <span class="eyebrow reveal" data-reveal>Sobre mí</span>
+      <h2 class="reveal" data-reveal data-delay="80">Hola, soy Jamin</h2>
+      <p class="reveal" data-reveal data-delay="140">
+        Diseño y programo sitios web para negocios que necesitan estar en línea <em>ya</em>, sin
+        procesos eternos ni presupuestos inflados. Trabajo solo, así que la persona que te contesta
+        el WhatsApp es la misma que diseña, escribe y publica tu página.
+      </p>
+      <p class="reveal" data-reveal data-delay="200">
+        Mi apuesta es simple: te entrego primero y me pagas después. Si el trabajo habla por sí solo,
+        no hace falta pedirte confianza por adelantado.
+      </p>
+
+      <div class="about-stats reveal" data-reveal data-delay="260">
+        <div><b>24 h</b><span>tiempo de entrega</span></div>
+        <div><b>$399</b><span>precio cerrado</span></div>
+        <div><b>100%</b><span>trato directo</span></div>
+      </div>
+
+      <a class="btn btn-ghost reveal" data-reveal data-delay="320" href="https://wa.me/18159084163?text=Hola%20Jamin%2C%20me%20gustar%C3%ADa%20platicar%20sobre%20un%20proyecto." target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 0 1-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        <span>Platiquemos</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="section" id="contacto">
+  <div class="shell contact">
+
+    <div class="contact-copy">
+      <span class="eyebrow reveal" data-reveal>Contacto</span>
+      <h2 class="reveal" data-reveal data-delay="80">Cuéntame de tu proyecto</h2>
+      <p class="section-lead reveal" data-reveal data-delay="140">
+        Llena el formulario y te respondo el mismo día. Si tienes prisa, el WhatsApp es más rápido.
+      </p>
+
+      <div class="contact-links reveal" data-reveal data-delay="200">
+        <a class="contact-link glass" href="https://wa.me/18159084163?text=Hola%20Jamin%2C%20quiero%20informaci%C3%B3n%20sobre%20mi%20p%C3%A1gina%20web." target="_blank" rel="noopener">
+          <span class="cl-ico wa"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg></span>
+          <span class="cl-text"><b>WhatsApp</b><small>Respuesta inmediata</small></span>
+          <svg class="cl-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+
+        <a class="contact-link glass" id="emailLink" href="#contacto">
+          <span class="cl-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></span>
+          <span class="cl-text"><b>Correo</b><small id="emailText">Escríbeme por correo</small></span>
+          <svg class="cl-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <ul class="contact-facts reveal" data-reveal data-delay="260">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Respondo el mismo día, de lunes a sábado.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>La cotización es gratis y sin compromiso.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>No pido anticipo: pagas cuando recibes tu web.</li>
+      </ul>
+    </div>
+
+    <div class="form-wrap glass reveal" data-reveal data-delay="120">
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="¿Cómo te llamas?" required />
+          <small class="error" data-error-for="nombre"></small>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required />
+            <small class="error" data-error-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono <span class="opt">(opcional)</span></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Para llamarte o escribirte" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tipo-servicio">¿Qué necesitas?</label>
+          <div class="select-wrap">
+            <select id="tipo-servicio" name="servicio">
+              <option value="Página web en 1 día ($399)">Página web en 1 día ($399)</option>
+              <option value="Diseño Gráfico">Diseño Gráfico</option>
+              <option value="Business Cards">Business Cards</option>
+              <option value="Fotografía y Video Profesional">Fotografía y Video Profesional</option>
+              <option value="Contenido para Redes Sociales">Contenido para Redes Sociales</option>
+              <option value="Varios servicios / otro">Varios servicios / otro</option>
+            </select>
+            <svg class="select-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame de tu negocio y qué te gustaría lograr." required></textarea>
+          <small class="error" data-error-for="mensaje"></small>
+        </div>
+
+        <!-- honeypot anti-spam -->
+        <div class="hp" aria-hidden="true">
+          <label for="empresa_web">No llenar</label>
+          <input type="text" id="empresa_web" name="_honey" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
+          <span class="btn-label">Enviar mensaje</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-note">Tus datos solo se usan para responderte. Nada de spam.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">Jamin<span class="dot">.</span></span>
+      <p>Tu página web en 1 día, por $399. Hosting y dominio incluidos.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie">
+      <a href="#servicio">El servicio</a>
+      <a href="#incluye">Qué incluye</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#extras">Más servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="footer-cta">
+      <a class="btn btn-primary btn-sm" href="https://wa.me/18159084163" target="_blank" rel="noopener"><span>WhatsApp</span></a>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© <span id="year">2026</span> Jamin. Todos los derechos reservados.</span>
+    <a href="#top" class="to-top">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a class="wa-float" href="https://wa.me/18159084163?text=Hola%20Jamin%2C%20quiero%20mi%20p%C3%A1gina%20web." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  <span class="wa-tip">¿Hablamos?</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

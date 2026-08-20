@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1086 1448" width="1086" height="1448">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="12%" r="95%">
+      <stop offset="0" stop-color="#123a8f"/><stop offset="55%" stop-color="#0a1f52"/><stop offset="100%" stop-color="#040c24"/>
+    </radialGradient>
+    <linearGradient id="fig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f7fd6"/><stop offset="1" stop-color="#16386f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1086" height="1448" fill="url(#bg)"/>
+  <g fill="url(#fig)" opacity=".9">
+    <circle cx="543" cy="640" r="150"/>
+    <path d="M543 820c-190 0-330 120-330 290v338h660V1110c0-170-140-290-330-290Z"/>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif" text-anchor="middle" fill="#9dc4ff">
+    <text x="543" y="1290" font-size="46" font-weight="600" letter-spacing="1">Coloca aquí tu foto</text>
+    <text x="543" y="1350" font-size="34" opacity=".75">assets/img/jamin.png</text>
+  </g>
+</svg>
