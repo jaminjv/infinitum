@@ -1,8 +1,8 @@
 # Landing page — Jamin
 
-Landing de una sola página para el servicio **“Tu página web en 1 día por $399”**,
-con sección secundaria de otros servicios, formulario de contacto que llega al correo
-y CTA directo a WhatsApp.
+Landing de una sola página para el servicio **“Tu página web en 1 día por $399”**
+(el hosting y el dominio no están incluidos en ese precio), con sección secundaria de
+otros servicios, formulario de contacto que llega al correo y CTA directo a WhatsApp.
 
 Sitio estático (HTML + CSS + JS, sin build ni dependencias), listo para GitHub Pages.
 
