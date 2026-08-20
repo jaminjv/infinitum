@@ -22,18 +22,18 @@ assets/
 
 ## 1. Falta un archivo: tu foto
 
-El diseño espera la foto en **`assets/img/jamin.png`** (la imagen tuya con fondo azul
-oscuro). Mientras no exista, se muestra automáticamente un marcador de posición.
+El diseño espera el retrato en **`assets/img/jamin.png`**. Mientras no exista, se muestra
+un marcador de posición con las mismas proporciones.
 
-Para agregarla:
+Para agregarlo, guarda la imagen con ese nombre exacto y súbela al repo
+(`git add assets/img/jamin.png`), o arrástrala desde GitHub con
+**Add file → Upload files** dentro de la carpeta `assets/img/`.
 
-1. Guarda la imagen como `assets/img/jamin.png`.
-2. Súbela al repo (`git add assets/img/jamin.png`).
-
-La foto se muestra con `mix-blend-mode: screen`, así que su fondo azul oscuro se funde
-con el marco de la sección “Sobre mí” y no se ve un recuadro recortado. Si prefieres que
-se vea como una foto normal con bordes, quita esa línea en `assets/css/styles.css`
-(busca `.photo-frame img`).
+El marco es cuadrado y la foto se recorta con `object-fit: cover`, así que cualquier
+tamaño funciona sin romper la maquetación; si la imagen no es cuadrada, el encuadre se
+ancla arriba (`object-position: center 18%`) para no cortar la cara. Un degradado en el
+borde inferior funde el retrato con el fondo de la sección, de modo que no se ve un
+recuadro pegado. Todo eso vive en `.photo-frame` dentro de `assets/css/styles.css`.
 
 ---
 

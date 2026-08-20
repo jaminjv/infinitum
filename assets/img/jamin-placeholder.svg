@@ -1,19 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1086 1448" width="1086" height="1448">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254">
   <defs>
-    <radialGradient id="bg" cx="30%" cy="12%" r="95%">
-      <stop offset="0" stop-color="#123a8f"/><stop offset="55%" stop-color="#0a1f52"/><stop offset="100%" stop-color="#040c24"/>
+    <radialGradient id="bd" cx="38%" cy="34%" r="82%">
+      <stop offset="0" stop-color="#3b3a3c"/><stop offset="55%" stop-color="#24262d"/><stop offset="100%" stop-color="#14161c"/>
     </radialGradient>
-    <linearGradient id="fig" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#3f7fd6"/><stop offset="1" stop-color="#16386f"/>
+    <radialGradient id="rim" cx="88%" cy="42%" r="46%">
+      <stop offset="0" stop-color="#2f7fd6" stop-opacity=".85"/><stop offset="100%" stop-color="#2f7fd6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="suit" x1="0" y1="0" x2="1" y2="0.3">
+      <stop offset="0" stop-color="#1b2130"/><stop offset="72%" stop-color="#232c40"/><stop offset="100%" stop-color="#3c6aa0"/>
     </linearGradient>
   </defs>
-  <rect width="1086" height="1448" fill="url(#bg)"/>
-  <g fill="url(#fig)" opacity=".9">
-    <circle cx="543" cy="640" r="150"/>
-    <path d="M543 820c-190 0-330 120-330 290v338h660V1110c0-170-140-290-330-290Z"/>
+
+  <rect width="1254" height="1254" fill="url(#bd)"/>
+  <rect width="1254" height="1254" fill="url(#rim)"/>
+
+  <!-- silueta sentada, aproxima el encuadre del retrato real -->
+  <g fill="url(#suit)">
+    <ellipse cx="530" cy="330" rx="152" ry="182"/>
+    <path d="M530 512c-96 0-150 44-186 108-52 92-79 246-88 388-6 92-8 168-8 246h716c4-118-4-250-30-350-30-116-90-196-176-244-64-36-140-48-228-48Z"/>
   </g>
-  <g font-family="Inter, Segoe UI, sans-serif" text-anchor="middle" fill="#9dc4ff">
-    <text x="543" y="1290" font-size="46" font-weight="600" letter-spacing="1">Coloca aquí tu foto</text>
-    <text x="543" y="1350" font-size="34" opacity=".75">assets/img/jamin.png</text>
+  <path d="M745 560c74 52 122 140 148 250 22 92 30 208 28 316h-64c4-108-4-216-26-306-24-102-52-186-116-236Z" fill="#4a86c6" opacity=".55"/>
+
+  <g font-family="Inter, Segoe UI, sans-serif" text-anchor="middle" fill="#a8c8f0">
+    <text x="627" y="1108" font-size="50" font-weight="600">Coloca aquí tu foto</text>
+    <text x="627" y="1168" font-size="36" opacity=".7">assets/img/jamin.png</text>
   </g>
 </svg>
