@@ -158,24 +158,32 @@ registros `A`, así que mientras exista, Hostinger rechazará los nuevos o los i
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
-| A | `@` | `185.199.108.153` | 3600 |
-| A | `@` | `185.199.109.153` | 3600 |
-| A | `@` | `185.199.110.153` | 3600 |
-| A | `@` | `185.199.111.153` | 3600 |
+| A | `@` | `185.199.108.153` | 300 |
+| A | `@` | `185.199.109.153` | 300 |
+| A | `@` | `185.199.110.153` | 300 |
+| A | `@` | `185.199.111.153` | 300 |
 
 Opcionalmente, para servir también por IPv6 (recomendable, hoy el dominio no lo tiene):
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
-| AAAA | `@` | `2606:50c0:8000::153` | 3600 |
-| AAAA | `@` | `2606:50c0:8001::153` | 3600 |
-| AAAA | `@` | `2606:50c0:8002::153` | 3600 |
-| AAAA | `@` | `2606:50c0:8003::153` | 3600 |
+| AAAA | `@` | `2606:50c0:8000::153` | 300 |
+| AAAA | `@` | `2606:50c0:8001::153` | 300 |
+| AAAA | `@` | `2606:50c0:8002::153` | 300 |
+| AAAA | `@` | `2606:50c0:8003::153` | 300 |
+
+> **Sobre el TTL.** Usa **300** mientras configuras y verificas: si hay que corregir
+> algo, el cambio se ve en minutos en vez de en una hora. Cuando el sitio ya cargue en
+> `jaminvisuals.com` y GitHub muestre *DNS check successful* con el certificado emitido,
+> sube los cinco registros a **3600**. Ten en cuenta que el TTL nuevo no acelera la
+> desaparición del viejo: cuánto tardan los resolvers en dejar de apuntar a Hostinger lo
+> gobierna el TTL que el `ALIAS` tenía ya cacheado, y eso no se puede cambiar a
+> posteriori. Es normal ver el cambio antes desde una red que desde otra.
 
 ### Paso 3: reapuntar el `www`
 
 No hace falta borrarlo: **edita** el `CNAME www` y cambia su valor
-`www.jaminvisuals.com.cdn.hstgr.net` por **`jaminjv.github.io`**. (Si tu panel no deja
+`www.jaminvisuals.com.cdn.hstgr.net` por **`jaminjv.github.io`** (TTL 300). (Si tu panel no deja
 editarlo, bórralo y créalo de nuevo; no puede haber dos `CNAME` en `www`.)
 
 Resultado final: cuatro `A` en `@` (más los cuatro `AAAA` si los añades) y un `CNAME`
