@@ -136,10 +136,26 @@ cliente real.
 El archivo `CNAME` en la raíz ya declara el dominio, así que GitHub lo toma solo.
 Falta apuntar el DNS desde Hostinger.
 
-### Registros en Hostinger
+### Paso 1: borrar los registros que apuntan a Hostinger
 
-**Dominios → DNS / Nameservers.** Borra primero cualquier registro `A` o `CNAME` que
-ya ocupe `@` o `www`, y crea estos:
+Hoy el dominio resuelve a los servidores de Hostinger, no a GitHub. En
+**Dominios → DNS / Nameservers** hay que **eliminar** estos registros antes de crear los
+nuevos (los valores pueden variar; lo que importa es borrar todo `A` y `AAAA` de `@` y
+de `www`):
+
+| Tipo | Nombre | Valor actual |
+|---|---|---|
+| A | `@` | `195.35.60.138`, `212.1.212.203` |
+| AAAA | `@` | `2a02:4780:…` (dos registros) |
+| A | `www` | `191.96.144.8`, `212.1.212.150` |
+| AAAA | `www` | `2a02:4780:…` (dos registros) |
+
+> **Los `AAAA` no son opcionales.** Si se quedan apuntando a Hostinger, cualquier
+> visitante con IPv6 —casi todos los celulares con datos móviles— seguirá viendo la
+> página vieja aunque los `A` ya apunten a GitHub. Es un fallo que parece intermitente
+> y cuesta diagnosticar.
+
+### Paso 2: crear los registros de GitHub Pages
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
@@ -147,16 +163,11 @@ ya ocupe `@` o `www`, y crea estos:
 | A | `@` | `185.199.109.153` | 3600 |
 | A | `@` | `185.199.110.153` | 3600 |
 | A | `@` | `185.199.111.153` | 3600 |
+| AAAA | `@` | `2606:50c0:8000::153` | 3600 |
+| AAAA | `@` | `2606:50c0:8001::153` | 3600 |
+| AAAA | `@` | `2606:50c0:8002::153` | 3600 |
+| AAAA | `@` | `2606:50c0:8003::153` | 3600 |
 | CNAME | `www` | `jaminjv.github.io` | 3600 |
-
-Opcionalmente, para que el sitio responda también por IPv6:
-
-| Tipo | Nombre | Valor |
-|---|---|---|
-| AAAA | `@` | `2606:50c0:8000::153` |
-| AAAA | `@` | `2606:50c0:8001::153` |
-| AAAA | `@` | `2606:50c0:8002::153` |
-| AAAA | `@` | `2606:50c0:8003::153` |
 
 ### Después, en GitHub
 
@@ -173,9 +184,13 @@ Entre que el `CNAME` existe y el DNS propaga, `jaminjv.github.io/infinitum` redi
 intervalo**. Por eso conviene crear los registros DNS primero y confirmarlos con:
 
 ```bash
-dig +short jaminvisuals.com          # debe devolver las cuatro IP 185.199.x.153
-dig +short www.jaminvisuals.com      # debe devolver jaminjv.github.io
+dig +short jaminvisuals.com        A      # las cuatro IP 185.199.x.153
+dig +short jaminvisuals.com        AAAA   # las cuatro 2606:50c0:800x::153
+dig +short www.jaminvisuals.com    CNAME  # jaminjv.github.io
 ```
+
+Si alguno sigue devolviendo `195.35.…`, `212.1.…`, `191.96.…` o `2a02:4780:…`, es que
+quedó un registro de Hostinger sin borrar o el DNS aún no propaga.
 
 ---
 
