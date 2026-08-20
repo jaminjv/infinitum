@@ -116,7 +116,8 @@ El sitio se publica desde la rama `main`, carpeta raíz.
 1. **Settings → Pages**.
 2. *Source*: **Deploy from a branch**.
 3. *Branch*: **`main`**, carpeta **`/ (root)`**. Guarda.
-4. En uno o dos minutos el sitio queda en **https://jaminjv.github.io/infinitum/**
+4. En uno o dos minutos el sitio queda en **https://jaminjv.github.io/infinitum/**,
+   y en `https://jaminvisuals.com` una vez que el DNS apunte (sección 6).
 
 > Si `main` no aparece como rama por defecto, cámbiala en
 > **Settings → General → Default branch**.
@@ -130,12 +131,15 @@ cliente real.
 
 ---
 
-## 6. Conectar tu dominio de Hostinger (cuando quieras)
+## 6. El dominio: jaminvisuals.com
 
-### a) Registros DNS
+El archivo `CNAME` en la raíz ya declara el dominio, así que GitHub lo toma solo.
+Falta apuntar el DNS desde Hostinger.
 
-En el panel de Hostinger, en **Dominios → DNS / Nameservers**, crea estos registros
-(borra antes cualquier `A` o `CNAME` que choque con `@` o `www`):
+### Registros en Hostinger
+
+**Dominios → DNS / Nameservers.** Borra primero cualquier registro `A` o `CNAME` que
+ya ocupe `@` o `www`, y crea estos:
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
@@ -145,19 +149,33 @@ En el panel de Hostinger, en **Dominios → DNS / Nameservers**, crea estos regi
 | A | `@` | `185.199.111.153` | 3600 |
 | CNAME | `www` | `jaminjv.github.io` | 3600 |
 
-### b) Decirle a GitHub cuál es el dominio
+Opcionalmente, para que el sitio responda también por IPv6:
 
-1. **Settings → Pages → Custom domain**: escribe tu dominio y guarda. Eso crea
-   automáticamente un archivo `CNAME` en la raíz del repo.
-2. Espera a que aparezca **DNS check successful** (el DNS tarda de minutos a 24 h).
-3. Marca **Enforce HTTPS**.
+| Tipo | Nombre | Valor |
+|---|---|---|
+| AAAA | `@` | `2606:50c0:8000::153` |
+| AAAA | `@` | `2606:50c0:8001::153` |
+| AAAA | `@` | `2606:50c0:8002::153` |
+| AAAA | `@` | `2606:50c0:8003::153` |
 
-### c) Actualizar las URL absolutas
+### Después, en GitHub
 
-Las etiquetas `canonical`, `og:url`, `og:image` y `twitter:image` en `index.html`
-apuntan hoy a `https://jaminjv.github.io/infinitum/`. Cámbialas por tu dominio para que
-la vista previa al compartir el enlace siga funcionando. Están juntas al principio del
-archivo, bajo un comentario que lo recuerda.
+1. **Settings → Pages → Custom domain**: escribe `jaminvisuals.com` y guarda.
+2. Espera a que diga **DNS check successful**. El DNS puede tardar de minutos a 24 h;
+   mientras tanto es normal ver errores.
+3. Marca **Enforce HTTPS** en cuanto se habilite (el certificado tarda unos minutos
+   más en emitirse).
+
+### Orden importante
+
+Entre que el `CNAME` existe y el DNS propaga, `jaminjv.github.io/infinitum` redirige a
+`jaminvisuals.com`, que todavía no resuelve. Es decir: **el sitio se ve caído en ese
+intervalo**. Por eso conviene crear los registros DNS primero y confirmarlos con:
+
+```bash
+dig +short jaminvisuals.com          # debe devolver las cuatro IP 185.199.x.153
+dig +short www.jaminvisuals.com      # debe devolver jaminjv.github.io
+```
 
 ---
 
