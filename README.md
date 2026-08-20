@@ -107,21 +107,35 @@ WhatsApp y al correo, así que ningún contacto se pierde.
 
 ---
 
-## 5. Publicar en GitHub Pages y conectar el dominio de Hostinger
+## 5. Publicar en GitHub Pages
 
-> Estos pasos son para cuando decidas subirlo. Nada de esto está hecho todavía.
+El sitio se publica desde la rama `main`, carpeta raíz.
 
-### a) Activar GitHub Pages
+### a) Activar Pages (una sola vez)
 
-1. En GitHub: **Settings → Pages**.
-2. En *Source* elige **Deploy from a branch**.
-3. Branch: la rama que uses (por ejemplo `main`), carpeta `/ (root)`. Guarda.
-4. En un par de minutos el sitio vive en `https://jaminjv.github.io/infinitum/`.
+1. **Settings → Pages**.
+2. *Source*: **Deploy from a branch**.
+3. *Branch*: **`main`**, carpeta **`/ (root)`**. Guarda.
+4. En uno o dos minutos el sitio queda en **https://jaminjv.github.io/infinitum/**
 
-### b) Apuntar tu dominio de Hostinger
+> Si `main` no aparece como rama por defecto, cámbiala en
+> **Settings → General → Default branch**.
+
+### b) Primer envío del formulario
+
+Entra al sitio ya publicado y mándate un mensaje de prueba. FormSubmit te enviará un
+correo de confirmación: al hacer clic en el enlace quedan habilitados todos los envíos
+siguientes. Hazlo tú antes de difundir la página, para no perder el mensaje de un
+cliente real.
+
+---
+
+## 6. Conectar tu dominio de Hostinger (cuando quieras)
+
+### a) Registros DNS
 
 En el panel de Hostinger, en **Dominios → DNS / Nameservers**, crea estos registros
-(borra primero cualquier registro `A` o `CNAME` que choque con `@` o `www`):
+(borra antes cualquier `A` o `CNAME` que choque con `@` o `www`):
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
@@ -131,17 +145,28 @@ En el panel de Hostinger, en **Dominios → DNS / Nameservers**, crea estos regi
 | A | `@` | `185.199.111.153` | 3600 |
 | CNAME | `www` | `jaminjv.github.io` | 3600 |
 
-### c) Decirle a GitHub cuál es el dominio
+### b) Decirle a GitHub cuál es el dominio
 
-1. **Settings → Pages → Custom domain**: escribe tu dominio (ej. `tudominio.com`) y guarda.
-   Eso crea un archivo `CNAME` en el repo automáticamente.
-2. Espera a que aparezca **DNS check successful** (el DNS puede tardar de minutos a 24 h).
-3. Marca **Enforce HTTPS** para que el sitio cargue con candado.
+1. **Settings → Pages → Custom domain**: escribe tu dominio y guarda. Eso crea
+   automáticamente un archivo `CNAME` en la raíz del repo.
+2. Espera a que aparezca **DNS check successful** (el DNS tarda de minutos a 24 h).
+3. Marca **Enforce HTTPS**.
 
-> Si prefieres crear el archivo a mano, basta con un `CNAME` en la raíz del repo cuyo
-> único contenido sea tu dominio, sin `https://` ni barra final.
+### c) Actualizar las URL absolutas
+
+Las etiquetas `canonical`, `og:url`, `og:image` y `twitter:image` en `index.html`
+apuntan hoy a `https://jaminjv.github.io/infinitum/`. Cámbialas por tu dominio para que
+la vista previa al compartir el enlace siga funcionando. Están juntas al principio del
+archivo, bajo un comentario que lo recuerda.
 
 ---
+
+## Imagen al compartir el enlace
+
+`assets/img/og-cover.png` (1200×630) es lo que se ve cuando alguien pega el enlace en
+WhatsApp, Facebook o LinkedIn. Se genera con Chromium a partir de
+`scratchpad/og.html`; si cambias el mensaje principal del sitio, conviene regenerarla
+para que ambos digan lo mismo.
 
 ## Accesibilidad y rendimiento
 
