@@ -136,26 +136,25 @@ cliente real.
 El archivo `CNAME` en la raíz ya declara el dominio, así que GitHub lo toma solo.
 Falta apuntar el DNS desde Hostinger.
 
-### Paso 1: borrar los registros que apuntan a Hostinger
+### Punto de partida
 
-Hoy el dominio resuelve a los servidores de Hostinger, no a GitHub. En
-**Dominios → DNS / Nameservers** hay que **eliminar** estos registros antes de crear los
-nuevos (los valores pueden variar; lo que importa es borrar todo `A` y `AAAA` de `@` y
-de `www`):
+La zona DNS del dominio tiene solo dos registros, ambos apuntando al CDN de Hostinger:
 
-| Tipo | Nombre | Valor actual |
+| Tipo | Nombre | Valor |
 |---|---|---|
-| A | `@` | `195.35.60.138`, `212.1.212.203` |
-| AAAA | `@` | `2a02:4780:…` (dos registros) |
-| A | `www` | `191.96.144.8`, `212.1.212.150` |
-| AAAA | `www` | `2a02:4780:…` (dos registros) |
+| ALIAS | `@` | `jaminvisuals.com.cdn.hstgr.net` |
+| CNAME | `www` | `www.jaminvisuals.com.cdn.hstgr.net` |
 
-> **Los `AAAA` no son opcionales.** Si se quedan apuntando a Hostinger, cualquier
-> visitante con IPv6 —casi todos los celulares con datos móviles— seguirá viendo la
-> página vieja aunque los `A` ya apunten a GitHub. Es un fallo que parece intermitente
-> y cuesta diagnosticar.
+Esos dos nombres `hstgr.net` son los que resuelven a las IP de Hostinger (`195.35.…`,
+`212.1.…`, `2a02:4780:…`). Al quitarlos desaparece toda la cadena, IPv6 incluido: no hay
+registros `AAAA` sueltos que limpiar.
 
-### Paso 2: crear los registros de GitHub Pages
+### Paso 1: quitar el ALIAS del apex
+
+**Borra** el registro `ALIAS @`. Es obligatorio: un ALIAS en `@` no puede convivir con
+registros `A`, así que mientras exista, Hostinger rechazará los nuevos o los ignorará.
+
+### Paso 2: crear los registros de GitHub Pages en `@`
 
 | Tipo | Nombre | Valor | TTL |
 |---|---|---|---|
@@ -163,11 +162,24 @@ de `www`):
 | A | `@` | `185.199.109.153` | 3600 |
 | A | `@` | `185.199.110.153` | 3600 |
 | A | `@` | `185.199.111.153` | 3600 |
+
+Opcionalmente, para servir también por IPv6 (recomendable, hoy el dominio no lo tiene):
+
+| Tipo | Nombre | Valor | TTL |
+|---|---|---|---|
 | AAAA | `@` | `2606:50c0:8000::153` | 3600 |
 | AAAA | `@` | `2606:50c0:8001::153` | 3600 |
 | AAAA | `@` | `2606:50c0:8002::153` | 3600 |
 | AAAA | `@` | `2606:50c0:8003::153` | 3600 |
-| CNAME | `www` | `jaminjv.github.io` | 3600 |
+
+### Paso 3: reapuntar el `www`
+
+No hace falta borrarlo: **edita** el `CNAME www` y cambia su valor
+`www.jaminvisuals.com.cdn.hstgr.net` por **`jaminjv.github.io`**. (Si tu panel no deja
+editarlo, bórralo y créalo de nuevo; no puede haber dos `CNAME` en `www`.)
+
+Resultado final: cuatro `A` en `@` (más los cuatro `AAAA` si los añades) y un `CNAME`
+en `www`.
 
 ### Después, en GitHub
 
@@ -190,7 +202,7 @@ dig +short www.jaminvisuals.com    CNAME  # jaminjv.github.io
 ```
 
 Si alguno sigue devolviendo `195.35.…`, `212.1.…`, `191.96.…` o `2a02:4780:…`, es que
-quedó un registro de Hostinger sin borrar o el DNS aún no propaga.
+el ALIAS o el CNAME viejo siguen en pie, o el DNS aún no propaga.
 
 ---
 
