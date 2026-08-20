@@ -300,9 +300,12 @@
   <div class="shell about">
     <div class="about-photo reveal" data-reveal>
       <div class="photo-frame">
-        <img src="assets/img/jamin.png" alt="Retrato de Jamin, diseñador gráfico, sentado y vestido con saco azul marino"
-             width="1254" height="1254" loading="lazy" decoding="async"
-             onerror="this.onerror=null;this.src='assets/img/jamin-placeholder.svg';" />
+        <picture>
+          <source srcset="assets/img/jamin.webp" type="image/webp" />
+          <img src="assets/img/jamin.jpg" alt="Retrato de Jamin, diseñador gráfico, sentado y vestido con saco azul marino"
+               width="1000" height="1000" loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='assets/img/jamin-placeholder.svg';" />
+        </picture>
         <div class="photo-glow" aria-hidden="true"></div>
       </div>
       <div class="badge glass" data-parallax="0.05">

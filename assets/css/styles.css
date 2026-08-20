@@ -849,6 +849,7 @@ h2 em{
   background:linear-gradient(170deg, rgba(20,60,140,.5), rgba(4,12,36,.9));
   box-shadow:0 40px 90px -34px rgba(0,20,70,.95), inset 0 1px 0 rgba(255,255,255,.2);
 }
+.photo-frame picture{ display:contents; }
 .photo-frame img{
   width:100%; height:100%;
   display:block;
@@ -874,13 +875,16 @@ h2 em{
   content:"";
   position:absolute; inset:0;
   z-index:3;
-  background:linear-gradient(120deg, rgba(255,255,255,.09), transparent 42%);
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.09), transparent 42%),
+    /* enfría el fondo cálido del estudio para que case con la paleta */
+    linear-gradient(95deg, rgba(18,52,124,.32), rgba(18,52,124,.06) 38%, transparent 55%);
   pointer-events:none;
 }
 .badge{
   position:absolute;
   right:-18px; bottom:20px;
-  max-width:240px;
+  max-width:262px;
   padding:14px 18px;
   border-radius:16px;
   animation:cardFloat 7s ease-in-out infinite;
@@ -894,7 +898,7 @@ h2 em{
   font-family:var(--font-display);
   font-size:.98rem; font-weight:700;
 }
-.badge span{ font-size:.78rem; color:var(--muted); line-height:1.4; display:block; margin-top:2px; }
+.badge span{ font-size:.78rem; color:var(--text-soft); line-height:1.45; display:block; margin-top:3px; text-wrap:balance; }
 
 .about-copy h2{ margin-bottom:18px; }
 .about-copy p{ color:var(--muted); margin:0 0 16px; font-size:1.02rem; }
@@ -1216,7 +1220,7 @@ select option{ background:#0a1730; color:var(--text); }
   .float-card b{ font-size:1.1rem; }
   .float-a{ top:2%; left:-2%; }
   .float-b{ bottom:-4%; right:-2%; }
-  .badge{ right:0; bottom:-14px; }
+  .badge{ right:0; bottom:14px; max-width:206px; }
   .footer-inner{ flex-direction:column; align-items:flex-start; }
   .wa-float{ right:16px; bottom:16px; }
 }

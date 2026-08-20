@@ -20,22 +20,37 @@ assets/
 
 ---
 
-## 1. Falta un archivo: tu foto
+## 1. La fotografía
 
-El diseño espera el retrato en **`assets/img/jamin.png`**. Mientras no exista, se muestra
-un marcador de posición con las mismas proporciones.
+El retrato vive en `assets/img/` en tres versiones:
 
-Para agregarlo, guarda la imagen con ese nombre exacto y súbela al repo
-(`git add assets/img/jamin.png`), o arrástrala desde GitHub con
-**Add file → Upload files** dentro de la carpeta `assets/img/`.
+| Archivo | Peso | Para qué sirve |
+|---|---|---|
+| `jamin.webp` | 50 KB | La que descarga casi todo el mundo |
+| `jamin.jpg` | 104 KB | Respaldo para navegadores sin WebP |
+| `jamin.png` | 1.8 MB | El original, sin tocar. No se sirve |
 
-El marco es cuadrado y la foto se recorta con `object-fit: cover`, así que cualquier
-tamaño funciona sin romper la maquetación; si la imagen no es cuadrada, el encuadre se
-ancla arriba (`object-position: center 18%`) para no cortar la cara. Un degradado en el
-borde inferior funde el retrato con el fondo de la sección, de modo que no se ve un
-recuadro pegado. Todo eso vive en `.photo-frame` dentro de `assets/css/styles.css`.
+El HTML usa `<picture>`, así que el navegador elige solo: pide el WebP y solo cae al
+JPEG si no lo soporta. El PNG original se conserva como copia maestra; puedes borrarlo
+del repo sin afectar el sitio.
 
----
+**Si cambias la foto**, sustituye el original y regenera las dos versiones servidas:
+
+```bash
+python3 -c "
+from PIL import Image
+src = Image.open('assets/img/jamin.png').convert('RGB').resize((1000,1000), Image.LANCZOS)
+src.save('assets/img/jamin.webp', 'WEBP', quality=88, method=6)
+src.save('assets/img/jamin.jpg',  'JPEG', quality=88, optimize=True, progressive=True, subsampling=1)
+"
+```
+
+El marco es cuadrado y la imagen se recorta con `object-fit: cover`, así que cualquier
+proporción funciona sin romper la maquetación; si no es cuadrada, el encuadre se ancla
+arriba (`object-position: center 18%`) para no cortar la cara. Un degradado en el borde
+inferior funde el retrato con el fondo de la sección, y una capa de color enfría el fondo
+cálido del estudio para que case con el azul de la página. Todo eso vive en
+`.photo-frame`, en `assets/css/styles.css`.
 
 ## 2. Ver el sitio en local
 
