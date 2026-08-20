@@ -163,6 +163,14 @@ registros `A`, así que mientras exista, Hostinger rechazará los nuevos o los i
 | A | `@` | `185.199.110.153` | 300 |
 | A | `@` | `185.199.111.153` | 300 |
 
+> **Hostinger avisará** de que «tener más de un registro A con el mismo nombre puede
+> hacer que su sitio web sea inaccesible». En este caso el aviso no aplica: varios `A`
+> con el mismo nombre son DNS estándar (*round robin*) y las cuatro IP son servidores de
+> borde de GitHub que sirven el mismo contenido, así que el sitio queda más disponible,
+> no menos. La advertencia apunta al error de dejar un `A` del hosting anterior
+> conviviendo con los nuevos: eso sí rompe, porque parte de los visitantes aterrizan en
+> el servidor viejo. Comprueba que en `@` no quede ninguna IP fuera de esas cuatro.
+
 Opcionalmente, para servir también por IPv6 (recomendable, hoy el dominio no lo tiene):
 
 | Tipo | Nombre | Valor | TTL |
